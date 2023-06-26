@@ -1,6 +1,5 @@
 ---
-title: Exploring the garden of forking paths
-author: George Savva
+title: Data Science Group Notes
 format: 
   gfm:
     output-file: README.md
@@ -9,6 +8,8 @@ format:
 # Introduction
 
 This file supports a presentation for the QIB Data Science group in June 2023
+
+# Exploring the garden of forking paths
 
 If I want to look at the implications of a particular statistical procedure I will often simulate some data with known properties and then test how well I can recover them.
 
