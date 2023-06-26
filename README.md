@@ -12,6 +12,9 @@ If I want to look at the implications of a particular statistical
 procedure I will often simulate some data with known properties and then
 test how well I can recover them.
 
+Here I will look at the effect of trying lots of different analyses on
+the same dataset.
+
 Suppose we will be testing whether $y$ depends on $x$ in a small
 observational dataset of men and women. We’ll also measure a covariate
 $z$.
@@ -35,27 +38,27 @@ df <- data.frame(
 df
 ```
 
-                 X           Z Sex           Y
-    1   0.54321650  0.91718270   M  1.75208697
-    2   0.38572838 -0.25437745   M  0.44574552
-    3  -0.21186844 -0.36166605   M -0.12812711
-    4   0.65010830  1.33103238   M  0.15095557
-    5   1.95604690  0.05300566   M  1.04145944
-    6   0.98712453 -2.11074742   M  0.31015582
-    7   0.45336113  2.65266662   M -0.60697059
-    8  -0.86708454  1.52368568   M  0.65578366
-    9   0.64524064  0.32845867   M -0.71881527
-    10 -0.64124342 -1.15472989   M -0.53079696
-    11  1.25090175  0.26337863   F  0.80286969
-    12  0.29531094  1.28349228   F  1.87369384
-    13 -0.25908121  0.96311509   F  0.46493227
-    14 -0.30594973 -0.10335747   F -0.45715603
-    15 -0.19587857 -1.55805456   F -0.08625369
-    16  0.08437761  1.96911035   F  1.31793303
-    17  0.18134901 -0.25831921   F -0.73615036
-    18 -0.57136085  0.09090011   F  0.80499296
-    19  0.57367466 -1.86894601   F  0.64813868
-    20 -1.35252443  1.95238622   F -0.81617122
+                 X           Z Sex          Y
+    1  -2.58985430 -0.01906942   M -0.4556069
+    2  -0.48076408 -0.07444334   M  1.3315597
+    3   1.28506198 -0.49222336   M -0.6494060
+    4   0.19313532 -0.29589310   M -0.1349421
+    5  -1.10259524  1.14005625   M -0.3348897
+    6   0.25664304  0.12658199   M -0.3715357
+    7  -0.27870854 -0.59448630   M -0.2356117
+    8   0.06652357  0.60777430   M -1.0104844
+    9  -0.65108339 -0.31306539   M  1.6414039
+    10  0.36704277 -1.52452116   M -1.7033753
+    11  0.28431027  1.11712171   F  0.1120709
+    12  0.70776108 -0.03947311   F  1.3547836
+    13 -0.00293671  1.40497230   F -1.6796357
+    14  0.97550408  1.71074383   F -1.1778335
+    15 -1.98397444  1.00086333   F -0.2685324
+    16  0.88005353  0.35026828   F  0.8213132
+    17 -0.32544723  0.71158196   F -1.3775428
+    18 -1.23213942  0.82726498   F -0.8791086
+    19 -0.46954848  0.89444948   F -0.4648820
+    20  0.28378727 -0.72223381   F -0.5310094
 
 ``` r
 # Analysis 1 - linear regression for X on Y.
@@ -73,7 +76,7 @@ pvalue1 <- coef(summary(model1))["X", "Pr(>|t|)"]
 pvalue1
 ```
 
-    [1] 0.1396194
+    [1] 0.9645074
 
 To see if the regression model is working OK, we should look at the
 distribution over repeated experiments.
@@ -171,7 +174,7 @@ What is the type-1 error rate of this procedure?
 100 * mean(pvalues<0.05)
 ```
 
-    [1] 6.4
+    [1] 7
 
 Finally, what else could we do?
 
@@ -223,7 +226,7 @@ What do you do in your own work?
 # Subgroup analysis 1
 
 Here I want to set up a situation where subgroups are apparently
-inconsistent even though .
+inconsistent even though the effect is the same in each group.
 
 ``` r
 library(ggplot2)

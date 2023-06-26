@@ -13,6 +13,8 @@ This file supports a presentation for the QIB Data Science group in June 2023
 
 If I want to look at the implications of a particular statistical procedure I will often simulate some data with known properties and then test how well I can recover them.
 
+Here I will look at the effect of trying lots of different analyses on the same dataset.
+
 Suppose we will be testing whether $y$ depends on $x$ in a small observational dataset of men and women.  We'll also measure a covariate $z$.
 
 We will use a linear regression model, but will test the implications of different design choices on the validity of the analysis.
@@ -189,7 +191,7 @@ What do you do in your own work?
 
 # Subgroup analysis 1
 
-Here I want to set up a situation where subgroups are apparently inconsistent even though .
+Here I want to set up a situation where subgroups are apparently inconsistent even though the effect is the same in each group.
 
 ```{r }
 library(ggplot2)
